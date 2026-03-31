@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model KhodamRecord {
+  id        Int      @id @default(autoincrement())
+  userName  String
+  khodamId  Int
+  createdAt DateTime @default(now())
+
+  @@index([userName])
+}

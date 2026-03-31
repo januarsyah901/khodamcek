@@ -1,16 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #09090b;
-  --foreground: #fafafa;
+  --background: #050505;
+  --foreground: #e0e0e0;
 }
 
 @theme {
   --font-inter: var(--font-inter);
   --font-outfit: var(--font-outfit);
+  --color-horror-red: #7f1d1d;
+  --color-horror-crimson: #991b1b;
+  --color-horror-glow: #dc2626;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Custom noise overlay */
+.noise-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Ominous Vignette */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  background: radial-gradient(circle, transparent 40%, #000 100%);
+  pointer-events: none;
+}
+
+/* Custom scrollbar for horror feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #450a0a;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7f1d1d;
 }

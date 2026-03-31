@@ -238,10 +238,22 @@ export default function Home() {
                       className="flex items-center gap-3 bg-red-950/20 px-6 py-2 rounded-full border border-red-900/30"
                     >
                       <Ghost className="w-5 h-5 text-red-600" />
-                      <span className="text-red-500 text-xs font-black uppercase tracking-[0.5em] font-outfit drop-shadow-sm">Ketangkep Basah!</span>
+                      <span className="text-red-500 text-lg font-black uppercase tracking-[0.5em] font-outfit drop-shadow-sm">Ketangkep Basah!</span>
                     </motion.div>
 
                     <div className="flex flex-col gap-4">
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="flex flex-col gap-1 items-center md:items-start"
+                      >
+                        <span className="text-[10px] md:text-sm font-black text-white/50 uppercase tracking-[0.6em] ml-1">MAJIKAN SAH:</span>
+                        <span className="text-2xl md:text-4xl font-black text-red-500 uppercase tracking-tight font-outfit drop-shadow-[0_0_10px_rgba(220,38,38,0.4)]">
+                          {result.name}
+                        </span>
+                      </motion.div>
+
                       <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -290,7 +302,7 @@ export default function Home() {
                     transition={{ delay: 1 }}
                     className="flex flex-col md:flex-row gap-6 items-center w-full justify-between pt-8 border-t border-red-900/20"
                   >
-                    <div className="text-white text-[10px] font-black uppercase tracking-widest animate-pulse flex items-center gap-2">
+                    <div className="text-white text-lg font-black uppercase tracking-widest animate-pulse flex items-center gap-2">
                       <Eye className="w-4 h-4 text-red-500" /> Khodam ini milik {result.name} selamanya!
                     </div>
 

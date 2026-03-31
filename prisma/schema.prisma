@@ -6,10 +6,21 @@ datasource db {
   provider = "sqlite"
 }
 
+model Khodam {
+  id          Int            @id @default(autoincrement())
+  name        String         @unique
+  description String
+  type        String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  records     KhodamRecord[]
+}
+
 model KhodamRecord {
   id        Int      @id @default(autoincrement())
   userName  String
   khodamId  Int
+  khodam    Khodam   @relation(fields: [khodamId], references: [id])
   createdAt DateTime @default(now())
 
   @@index([userName])
